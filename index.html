@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+  <meta charset="utf-8">
+  <title>Flickr Search</title>
+ 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body ng-app="flickrapp" ng-controller="ListController" layout="column" layout-align="top center">
+
+
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <span class="md-flex">Flickr Search</span>
+  </div>
+</md-toolbar>
+  <md-content class="md-padding">
+
+      <form ng-submit="search()">
+        <div layout-gt-sm="row">
+          <md-input-container flex>
+            <label>Search Image</label>
+            <input class="long" type="text" ng-model="searchImage"/>
+          </md-input-container>
+        </div>
+        <md-progress-circular ng-if="isSearching" md-theme="blue" md-mode="intermediate"></md-progress-circular>
+      </form>
+      <md-card ng-repeat="picture in results.photos.photo">
+        <img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg" alt="" class="md-card-image">
+        <h3> {{picture.title}}</h3>
+      </md-card>
+
+  </md-content>
+ 
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/hammerjs/hammer.min.js"></script>
+
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

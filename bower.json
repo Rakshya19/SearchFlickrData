@@ -1,0 +1,23 @@
+{
+  "name": "Flickr-View-Search",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Rakshya Bhattarai <me.rakshya18@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.19",
+    "angular-animate": "^1.7.8",
+    "angular-aria": "^1.7.8",
+    "hammerjs": "^2.0.8"
+  }
+}
