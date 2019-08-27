@@ -9,43 +9,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
-
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.226/styles/kendo.common-material.min.css" />
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.226/styles/kendo.bootstrap.min.css" />
+    <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
   <link rel="stylesheet" href="style.css">
 
 </head>
 <body ng-app="flickrapp" ng-controller="ListController" layout="column" layout-align="top center">
-
-
 <md-toolbar>
   <div class="md-toolbar-tools">
     <span class="md-flex">Flickr Search</span>
   </div>
 </md-toolbar>
   <md-content class="md-padding">
-
-      <form ng-submit="search()">
+      <form>
         <div layout-gt-sm="row">
-          <md-input-container flex>
-            <label>Search Image</label>
+          <div class="col-xs-7 pad-col-7">
+            <md-input-container flex>
+            <label>Search Tags</label>
             <input class="long" type="text" ng-model="searchImage"/>
-          </md-input-container>
+            </md-input-container>
+          </div>
         </div>
+        <md-button class="md-raised"  ng-click="search()">Search</md-button>
         <md-progress-circular ng-if="isSearching" md-theme="blue" md-mode="intermediate"></md-progress-circular>
       </form>
-      <md-card ng-repeat="picture in results.photos.photo">
-        <img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg" alt="" class="md-card-image">
-        <h3> {{picture.title}}</h3>
-      </md-card>
 
+     <div class="panel panel-info ">
+        <kendo-grid options="myGridOption">
+          <div class="k-pager-wrap k-grid-pager grid" data-role="pager" id="Grid"></div>
+        </kendo-grid>
+     </div>
   </md-content>
- 
+  <script src="node_modules/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-aria/angular-aria.min.js"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="bower_components/hammerjs/hammer.min.js"></script>
-
   <script src="bower_components/angular-material/angular-material.min.js"></script>
-
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/kendo.all.min.js"></script>
+<script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
   <script src="app.js"></script>
 
 </body>
